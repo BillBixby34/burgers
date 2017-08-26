@@ -2,11 +2,11 @@
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-	port:3011,
+	port:3000,
 	host: "localhost",
 	user: "root",
 	password: "1001",
-	database: burgers_db;
+	database: "burgers_db"
 });
 
 //Inside the `connection.js` file, setup the code to connect Node to MySQL.

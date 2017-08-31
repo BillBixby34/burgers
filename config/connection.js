@@ -1,8 +1,8 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
-
+//is having port in connection object redundant?
 var connection = mysql.createConnection({
-	port:3000,
+	port: 3000,
 	host: "localhost",
 	user: "root",
 	password: "1001",

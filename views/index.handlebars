@@ -1,1 +1,29 @@
-//everything will go here!
+<h1>Burgers Fam!</h1>
+
+<ul>
+{{#each burgers}}
+	<li>
+	<p>{{this.id}}. {{this.burger_name}}
+
+	<form action="/delete?_method=DELETE" method="POST">
+	<input type="hidden" name="id" value="{{this.id}}">
+	<button type="submit">DEVOUR</button>
+	</form>
+	</p>
+	</li>
+{{/each}}
+</ul>
+
+<h2>Add a Burger for Later</h2>
+<form method="POST" action="/create">
+<textarea type="text" name="burger_name"></textarea>
+<button type="submit">ADD BURGER</button>
+</form>
+
+<!--action will look similar for delete aswell-->
+<h2>Update a Burger?</h2>
+<form method="POST" action="/update?_method=PUT">
+<input type="text" name="id" placeholder="id">
+<textarea type="text" name="burger_name" placeholder="What do you want to update this burger to??"></textarea>
+<button type="submit">UPDATE BURGER</button>
+</form>

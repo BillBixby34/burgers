@@ -1,11 +1,28 @@
 //Import (require) `connection.js` into `orm.js`
 var connection = require("./connection.js");
-//methods that will execute mysql commands
-//function selectAll(){};
+// Helper function for SQL syntax.
+function printQuestionMarks(num) {
+  var arr = [];
 
-//function insertOne(){};
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
 
-//function updateOne(){};
+  return arr.toString();
+}
+
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
 
 
 var orm = {

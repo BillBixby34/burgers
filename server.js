@@ -3,7 +3,7 @@ var express = require("express");
 var methodOverride = require("method-override");
 var bodyParser = require("body-parser");
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -20,8 +20,7 @@ app.set("view engine", "handlebars");
 
 //do I import routes here so server may access
 var routes = require("./controllers/burgers_controller.js");
-
+app.use("/", routes);
 //change to app.listen(port) => no errors
-//app.listen(app.get('port'),() => console.log())
-app.listen(app.get("port"),() => console.log("Listening on PORT " + port)
-);
+//app.listen(app.get('port'),() => console.log("Listening on PORT " + port))gives errors
+app.listen(port);

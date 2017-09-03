@@ -18,7 +18,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 //check app.set(...) listen does not work
 
-//do I import routes here so server may access
 var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes);
 //change to app.listen(port) => no errors

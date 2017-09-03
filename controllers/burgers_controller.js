@@ -15,12 +15,11 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/create", function(req, res) {
+router.post("/", function(req, res) {
   burger.insertOne([
     "burger_name"
   ], [
-    req.body.burger_name
-  ], function() {
+    req.body.burger_name], function() {
     res.redirect("/");
   });
 });
@@ -30,7 +29,7 @@ router.put("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   //determines devoured || !devoured
   console.log("condition", condition);
-
+//but 
   burger.updateOne({
     devoured: req.body.devoured
   }, condition, function() {

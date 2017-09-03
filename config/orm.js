@@ -37,6 +37,13 @@ var orm = {
 	},
 insertOne: function(table, cols, vals, cb) {
 	var queryString = "INSERT INTO " + table;
+
+  queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
 },
 	//objColVals will be {burger_name: cheese, devoured: false}
 	updateOne: function(table, objColVals, condition, cb) {
@@ -55,7 +62,7 @@ insertOne: function(table, cols, vals, cb) {
       cb(result);
     });
   }
-}
+};
 //* `selectAll()` 
 //   * `insertOne()` 
 // * `updateOne()` 

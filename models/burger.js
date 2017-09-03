@@ -1,8 +1,6 @@
 // Import the ORM to create functions that will interact with the database.
 var orm = require("../config/orm.js");
 
-//inside `burger.js`, create the code that will call 
-//ORM functions(* `selectAll()`, * `insertOne()`, * `updateOne()` ) using burger specific input for the ORM.
 //selects all burgers
 var burger = {
   selectAll: function(cb) {
@@ -17,7 +15,7 @@ var burger = {
       cb(res);
     });
   },
-  //moves burger to devoured column
+  //burger to devoured="true"
   updateOne: function(objColVals, condition, cb) {
     orm.updateOne("burgers", objColVals, condition, function(res) {
       cb(res);

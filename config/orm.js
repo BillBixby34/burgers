@@ -44,6 +44,16 @@ insertOne: function(table, cols, vals, cb) {
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";
+
+    console.log(queryString);
+    //check connection.query... to cb(result)
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+       throw err;
+     }
+
+      cb(result);
+    });
 },
 	//objColVals will be {burger_name: cheese, devoured: false}
 	updateOne: function(table, objColVals, condition, cb) {

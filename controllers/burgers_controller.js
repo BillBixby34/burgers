@@ -27,7 +27,7 @@ router.post("/", function(req, res) {
 //probably not searching by id...
 router.put("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
-  //determines devoured || !devoured
+  //determines condition  by id
   console.log("condition", condition);
 //but 
   burger.updateOne({
